@@ -1,1 +1,1 @@
-AdamJadRepository v1.0
+AdamJadRepository v1.1
