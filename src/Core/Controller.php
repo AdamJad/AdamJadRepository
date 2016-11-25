@@ -16,9 +16,9 @@ class Controller
      *
      * @return Model
      */
-    protected function getModel()
+    protected function getModel($class = null)
     {
-        return new Model();
+        return new Model($class);
     }
 
 

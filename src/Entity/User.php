@@ -9,6 +9,20 @@
 class User
 {
     /**
+     * Statut administrateur de l'Utilisateur
+     *
+     * @const
+     */
+    const ADMIN = 1;
+
+    /**
+     * Statut écrivain de l'Utilisateur
+     *
+     * @const
+     */
+    const WRITTER = 0;
+
+    /**
      * L'identifiant de l'utilisateur
      *
      * @var int

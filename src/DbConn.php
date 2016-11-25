@@ -9,7 +9,7 @@
 class DbConn
 {
     /**
-     * Instance de la classe SPDO
+     * Instance de la classe DbConn
      *
      * @var DbConn
      * @access private
@@ -17,7 +17,7 @@ class DbConn
     private $PDOInstance = null;
 
     /**
-     * Instance de la classe SPDO
+     * Instance de la classe DbConn
      *
      * @var DbConn
      * @access private
@@ -63,8 +63,8 @@ class DbConn
     private function __construct()
     {
         try {
-            $this->_pdo = new PDO('mysql:dbname=' . self::DB . ';host=' . self::HOST, self::USER, self::PASSWORD);
-            $this->_pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->PDOInstance = new PDO('mysql:dbname=' . self::DB . ';host=' . self::HOST, self::USER, self::PASSWORD);
+            $this->PDOInstance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (Exception $e) {
             echo 'Erreur : ' . $e->getMessage() . '<br />';
             die();
@@ -102,13 +102,14 @@ class DbConn
      * Exécute une requête SQL préparée avec PDO
      *
      * @param string $query La requête SQL
-     * @param array $statement template de requête SQL valide pour le serveur de base de données cible
+     * @param array $vars template de requête SQL valide pour le serveur de base de données cible
      * @return PDOStatement Retourne l'objet PDOStatement
      */
-    public function execute($query, array $statement)
+    public function execute($query, $vars)
     {
-        $request = $this->PDOInstance->prepare($query);
-        return $request->execute($statement);
+        $statement = $this->PDOInstance->prepare($query);
+        $statement->execute($vars);
+        return $statement;
 
     }
 }
