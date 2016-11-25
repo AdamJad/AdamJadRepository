@@ -2,11 +2,10 @@
 
 /**
  * Created by PhpStorm.
- * User: Adam
+ * User: Med
  * Date: 24/11/2016
  * Time: 21:37
  */
-
 class DbConn
 {
     /**
@@ -45,7 +44,7 @@ class DbConn
      *
      * @var string
      */
-    const PASS = '';
+    const PASSWORD = '';
 
     /**
      * Constante: nom de la bdd
@@ -64,7 +63,7 @@ class DbConn
     private function __construct()
     {
         try {
-            $this->_pdo = new PDO('mysql:dbname=' . self::DB . ';host=' . self::HOST, self::USER, self::PASS);
+            $this->_pdo = new PDO('mysql:dbname=' . self::DB . ';host=' . self::HOST, self::USER, self::PASSWORD);
             $this->_pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (Exception $e) {
             echo 'Erreur : ' . $e->getMessage() . '<br />';
@@ -106,7 +105,8 @@ class DbConn
      * @param array $statement template de requête SQL valide pour le serveur de base de données cible
      * @return PDOStatement Retourne l'objet PDOStatement
      */
-    public function execute($query, array $statement) {
+    public function execute($query, array $statement)
+    {
         $request = $this->PDOInstance->prepare($query);
         return $request->execute($statement);
 
