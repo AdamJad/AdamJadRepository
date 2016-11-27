@@ -6,7 +6,8 @@
  * Date: 24/11/2016
  * Time: 23:57
  */
-class User
+require_once "Entity.php";
+class User extends Entity
 {
     /**
      * Statut administrateur de l'Utilisateur
@@ -74,8 +75,9 @@ class User
     /**
      * User constructor.
      */
-    public function __construct()
+    public function __construct(array $data)
     {
+        $this->arrayToObject($data);
     }
 
 
@@ -191,9 +193,5 @@ class User
         $this->role = $role;
     }
 
-    public function getObjectVars()
-    {
-        return get_object_vars($this);
-    }
 
 }

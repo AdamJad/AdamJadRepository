@@ -14,11 +14,17 @@ class UserController extends Controller
     {
         $user = new User();
         $user->setFirstName("Mohammed");
-        $user->setLastName("EL HAMMOUMI").
+        $user->setLastName("EL HAMMOUMI");
         $user->setEmail("diimedo@gmail.com");
         $user->setUsername("dimedo");
         $user->setPassword("test");
         $user->setRole(User::WRITTER);
         $this->getModel()->save($user);
+    }
+
+    public function displayUser()
+    {
+        $users = $this->getModel("User")->findAll();
+        print_r($users);
     }
 }

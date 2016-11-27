@@ -9,4 +9,4 @@
 require_once "UserController.php";
 
 $u = new UserController();
-$u->saveUser();
+$u->displayUser();

@@ -20,7 +20,6 @@ class Model
 
     /**
      *
-     *
      * @var string
      */
     private $class;
@@ -33,7 +32,7 @@ class Model
     public function __construct($class = null)
     {
         $this->dbConn = DbConn::getInstance();
-        $this->table = $class;
+        $this->class = $class;
     }
 
     /**
@@ -51,7 +50,15 @@ class Model
      */
     public function findAll()
     {
-        $entities = null;
+        $sql = "SELECT * FROM ".$this->class;
+        $request = $this->getDbConn()->query($sql);
+        $data = $request->fetchAll(PDO::FETCH_ASSOC);
+
+        $entities = array();
+        foreach ($data as $row) {
+            $id = $row['id'];
+            $entities[$id] = new $this->class($data);
+        }
         return $entities;
     }
 
@@ -71,7 +78,7 @@ class Model
         }
         $values = substr($values, 0, -1);
         $fields = substr($fields, 0, -1);
-        $query = "INSERT INTO " . "user" . " ( " . $fields . " ) VALUES ( " . $values . " )";
+        $query = "INSERT INTO " . get_class($object) . " ( " . $fields . " ) VALUES ( " . $values . " )";
         $this->getDbConn()->execute($query, $vars);
 
         //print_r($vars);
