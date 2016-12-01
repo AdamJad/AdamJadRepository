@@ -24,7 +24,8 @@ class UserController extends Controller
 
     public function displayUser()
     {
-        $users = $this->getModel("User")->findAll();
-        print_r($users);
+        $user = $this->getModel("User")->findById(8);
+        $user->setEmail("test@gmail.com");
+        $this->getModel()->update($user);
     }
 }

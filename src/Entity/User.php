@@ -7,6 +7,7 @@
  * Time: 23:57
  */
 require_once "Entity.php";
+
 class User extends Entity
 {
     /**
@@ -72,12 +73,14 @@ class User extends Entity
      */
     private $role;
 
+
     /**
      * User constructor.
      */
-    public function __construct(array $data)
+    public function __construct($data = array())
     {
-        $this->arrayToObject($data);
+        if (!is_null($data))
+            $this->arrayToObject($data);
     }
 
 
@@ -193,5 +196,9 @@ class User extends Entity
         $this->role = $role;
     }
 
+    public function getObjectVars()
+    {
+        return get_object_vars($this);
+    }
 
 }
