@@ -6,7 +6,6 @@
  * Date: 24/11/2016
  * Time: 23:57
  */
-require_once "Entity.php";
 
 class User extends Entity
 {

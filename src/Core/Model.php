@@ -6,8 +6,7 @@
  * Date: 25/11/2016
  * Time: 03:41
  */
-require_once "C:\\xampp\\htdocs\\AdamJadRepository\\src\\DbConn.php";
-require_once "C:\\xampp\\htdocs\\AdamJadRepository\\src\\Entity\\User.php";
+
 
 class Model
 {
