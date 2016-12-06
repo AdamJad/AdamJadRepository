@@ -6,8 +6,6 @@
  * Date: 25/11/2016
  * Time: 03:41
  */
-
-
 class Model
 {
     /**
@@ -78,12 +76,19 @@ class Model
         //echo $query;
     }
 
-    public function findAllBy($field, $value)
+
+    public function findAllBy($params)
     {
-        $query = "SELECT * FROM " . $this->class . " WHERE $field=:value";
-        $vars = array(
-            "value" => $value
-        );
+        $condition = "";
+        $i = 0;
+        foreach ($params as $key => $value) {
+            $condition .= $key . "=:vars" . $i . " and ";
+            $vars["vars" . $i] = $value;
+            $i++;
+        }
+        $condition = substr($condition, 0, -4);
+        $query = "SELECT * FROM " . $this->class . " WHERE " . $condition;
+
         $request = $this->getDbConn()->execute($query, $vars);
         $data = $request->fetchAll(PDO::FETCH_ASSOC);
         if (!$data)
@@ -98,6 +103,7 @@ class Model
         //print_r($vars);
         //echo $query;
     }
+
 
     public function save($object)
     {

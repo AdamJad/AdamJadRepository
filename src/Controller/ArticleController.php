@@ -10,7 +10,12 @@ class ArticleController extends Controller
 {
     public function displayArticles()
     {
-        $this->render("articles", "Liste des article");
+        $data = array(
+            "title" => "ici le titre",
+            "content" => "ici le content"
+
+        );
+        $this->render("articles", "Liste des article", $data);
         //echo "display articles";
     }
 }
