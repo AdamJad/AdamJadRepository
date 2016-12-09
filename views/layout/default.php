@@ -68,25 +68,19 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
                 <li>
-                    <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>
+                    <a href="<?php echo WEBROOT . "article/displayarticle" ?>"><i class="fa fa-fw fa-edit"></i> Article</a>
                 </li>
                 <li>
-                    <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
-                </li>
-                <li>
-                    <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i
-                            class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="demo" class="collapse">
+                    <a href="javascript:;" data-toggle="collapse" data-target="#user"><i
+                            class="fa fa-fw fa-arrows-v"></i> Utilisateur <i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="user" class="collapse">
                         <li>
-                            <a href="#">Dropdown Item</a>
+                            <a href="<?php echo WEBROOT . "user/newuser" ?>">Nouveau Utilisateur</a>
                         </li>
                         <li>
-                            <a href="#">Dropdown Item</a>
+                            <a href="<?php echo WEBROOT . "user/displayuser" ?>">Liste Utilistateur</a>
                         </li>
                     </ul>
-                </li>
-                <li class="active">
-                    <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
                 </li>
             </ul>
         </div>

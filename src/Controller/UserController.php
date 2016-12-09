@@ -29,12 +29,23 @@ class UserController extends Controller
 
     public function updateUserAction()
     {
+        //salem ajouter tout les champs
+        if (!empty($_POST["id"]) and !empty($_POST["userName"]) and !empty($_POST["email"])) {
+            $user = new User();
+            $user->setId($_POST["id"]);
+            $user->setUsername($_POST["userName"]);
+            $user->setEmail($_POST["email"]);
+            $this->getModel()->update($user);
+        }else{
+            require_once ROOTVIEW . 'views/error/404.php';
+        }
 
 
     }
 
     public function addUserAction()
     {
+        //salem ajouter tout les champs
         if (!empty($_POST["userName"]) and !empty($_POST["email"])) {
             $user = new User();
             $user->setEmail($_POST["email"]);
