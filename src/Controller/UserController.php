@@ -9,7 +9,7 @@
 class UserController extends Controller
 {
 
-    public function displayUser()
+    public function displayUsers()
     {
         $data = $this->getModel("user")->findAll();
 
@@ -36,7 +36,7 @@ class UserController extends Controller
             $user->setUsername($_POST["userName"]);
             $user->setEmail($_POST["email"]);
             $this->getModel()->update($user);
-        }else{
+        } else {
             require_once ROOTVIEW . 'views/error/404.php';
         }
 
@@ -80,6 +80,12 @@ class UserController extends Controller
             $this->render("authenticate", "Autontifation", null, false);
         }
 
+    }
+
+    public function disconnection()
+    {
+        session_destroy();
+        $this->rededition("user/authenticate");
     }
 
 }

@@ -59,7 +59,8 @@
                     </li>
                     <li class="divider"></li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        <a href="<?php echo WEBROOT . "user/disconnection" ?>"><i class="fa fa-fw fa-power-off"></i> Log
+                            Out</a>
                     </li>
                 </ul>
             </li>
@@ -68,7 +69,7 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
                 <li>
-                    <a href="<?php echo WEBROOT . "article/displayarticle" ?>"><i class="fa fa-fw fa-edit"></i> Article</a>
+                    <a href="<?php echo WEBROOT . "article/displayarticles" ?>"><i class="fa fa-fw fa-edit"></i> Article</a>
                 </li>
                 <li>
                     <a href="javascript:;" data-toggle="collapse" data-target="#user"><i
@@ -78,7 +79,7 @@
                             <a href="<?php echo WEBROOT . "user/newuser" ?>">Nouveau Utilisateur</a>
                         </li>
                         <li>
-                            <a href="<?php echo WEBROOT . "user/displayuser" ?>">Liste Utilistateur</a>
+                            <a href="<?php echo WEBROOT . "user/displayusers" ?>">Liste Utilistateur</a>
                         </li>
                     </ul>
                 </li>
