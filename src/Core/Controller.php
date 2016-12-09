@@ -39,18 +39,19 @@ class Controller
 
     protected function rededition($param)
     {
-        header('Location: index.php?p=' . $param);
+        header('Location: ' . WEBROOT . $param);
     }
 
     public static function Router($param)
     {
         if (!empty($_SESSION["user"])) {
             if ($param == "user/authenticate") {
-                $param = "index/home";
+                $param = "article/displayArticles";
             }
             return $param;
         } else {
             return "user/authenticate";
+
         }
 
     }

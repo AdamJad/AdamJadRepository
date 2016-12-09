@@ -6,7 +6,6 @@
  * Date: 24/11/2016
  * Time: 23:57
  */
-
 class User extends Entity
 {
     /**
@@ -193,6 +192,27 @@ class User extends Entity
     public function setRole($role)
     {
         $this->role = $role;
+    }
+
+    public function displayRole()
+    {
+        switch ($this->role) {
+            case 0:
+                return "Ecrivain";
+            case 1:
+                return "Administrateur";
+            default:
+                return "Visiteur";
+
+        }
+    }
+
+    public static function arrayRole()
+    {
+        return array(
+            "Adminstrateur" => User::ADMIN,
+            "Ecrivan" => User::WRITTER
+        );
     }
 
     public function getObjectVars()

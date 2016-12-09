@@ -25,28 +25,16 @@
     </div>
 
     <div class="form">
-        <?php print_r($data) ?>
+        <?php echo $data["MessageError"] ?>
         <h2>Login to your account</h2>
-        <form method="post" name="fromm" action="">
+        <form method="post" name="fromm" action="<?php echo WEBROOT . "user/authenticate" ?>">
             <input type="text" placeholder="Username" name="username"/>
             <input type="password" placeholder="Password" name="password"/>
             <button name="submit"> Login</button>
         </form>
     </div>
 
-    <div class="form">
-        <h2>Create an account</h2>
-        <form>
-            <input type="text" placeholder="Username"/>
-            <input type="password" placeholder="Password"/>
-            <input type="email" placeholder="Email Address"/>
-            <input type="tel" placeholder="Phone Number"/>
-            <input type="submit" value="login" name="submit"/>
-            <button>Register</button>
-        </form>
-    </div>
-
-    <div class="cta"><a href="xxxxxxx">Forgot your password?</a></div>
+    <div class="cta"><a href="">Forgot your password?</a></div>
 </div>
 
 </body>

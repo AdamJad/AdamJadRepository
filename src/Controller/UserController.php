@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: Med
@@ -15,11 +16,34 @@ class UserController extends Controller
         $this->render("users", "Liste des utilisateur", $data);
     }
 
+    public function newUser()
+    {
+        $this->render("update_create_user", "Nouveau Utilisateur");
+    }
 
+    public function updateUser($id)
+    {
+        $data = $this->getModel("user")->findById($id);
+        $this->render("update_create_user", "Modifier utilisateur", $data);
+    }
 
-    public function test()
+    public function updateUserAction()
     {
 
+
+    }
+
+    public function addUserAction()
+    {
+        if (!empty($_POST["userName"]) and !empty($_POST["email"])) {
+            $user = new User();
+            $user->setEmail($_POST["email"]);
+            $user->setUsername($_POST["username"]);
+            $this->getModel()->save($user);
+            $this->rededition("user/displayUser");
+        } else {
+            require_once ROOTVIEW . 'views/error/404.php';
+        }
     }
 
     public function authenticate()
@@ -29,22 +53,20 @@ class UserController extends Controller
             $password = $_POST["password"];
             $username = $_POST["username"];
             $user = $this->getModel("user")->findAllBy(array(
-                "username" => $password,
-                "password" => $username
+                "username" => $username,
+                "password" => $password
             ));
-            if (!$user) {
+            if ($user != null) {
                 $_SESSION['user'] = $user;
                 $this->rededition("article/displayArticles");
             } else {
                 $data = array(
-                    "getMessageError" => "Le nom d'utilisateur ou le mot de passe est incorrect"
+                    "MessageError" => "Le nom d'utilisateur ou le mot de passe est incorrect"
                 );
                 $this->render("authenticate", "Autontifation", $data, false);
             }
         } else {
             $this->render("authenticate", "Autontifation", null, false);
-            //$_SESSION["errors"] = "Veuillez remplir tout les champs";
-            //header("location:../login");
         }
 
     }

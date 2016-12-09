@@ -6,9 +6,9 @@
  * Time: 21:37
  */
 session_start();
-define("ROOTVIEW", str_replace("src/index.php", "", $_SERVER["SCRIPT_FILENAME"]), TRUE);
-define("ROOT", str_replace("index.php", "", $_SERVER["SCRIPT_FILENAME"]), TRUE);
-define("WEBROOT", str_replace("src/index.php", "", 'http://' . $_SERVER["HTTP_HOST"] . $_SERVER["SCRIPT_NAME"]), TRUE);
+define("ROOTVIEW", str_replace("index.php", "", $_SERVER["SCRIPT_FILENAME"]), TRUE);
+define("ROOT", str_replace("index.php", "src/", $_SERVER["SCRIPT_FILENAME"]), TRUE);
+define("WEBROOT", str_replace("index.php", "", 'http://' . $_SERVER["HTTP_HOST"] . $_SERVER["SCRIPT_NAME"]), TRUE);
 
 require_once ROOT . 'DbConn.php';
 require_once ROOT . 'core/Model.php';
@@ -17,6 +17,7 @@ require_once ROOT . 'core/Controller.php';
 
 
 $get = (!empty($_GET["p"])) ? $_GET["p"] : "";
+
 
 $get = Controller::Router($get);
 
