@@ -5,8 +5,6 @@
  * Date: 08/12/2016
  * Time: 06:18
  */
-?>
-<?php
 $url = WEBROOT . "user/";
 if (!empty($data)) {
     $user = $data;

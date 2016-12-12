@@ -197,9 +197,9 @@ class User extends Entity
     public function displayRole()
     {
         switch ($this->role) {
-            case 0:
+            case User::WRITTER:
                 return "Ecrivain";
-            case 1:
+            case User::ADMIN:
                 return "Administrateur";
             default:
                 return "Visiteur";

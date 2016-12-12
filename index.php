@@ -23,7 +23,7 @@ $get = Controller::Router($get);
 
 $params = explode('/', $get);
 $controller = $params[0] = (!empty($params[0])) ? $params[0] : "user";
-$action = $params[1] = (!empty($params[1])) ? $params[1] : "displayUser";
+$action = $params[1] = (!empty($params[1])) ? $params[1] : "displayUsers";
 $entity = ucfirst(strtolower($controller));
 $controller = ucfirst(strtolower($controller)) . 'Controller';
 

@@ -20,6 +20,16 @@
     <!-- Custom Fonts -->
     <link href=<?php echo WEBROOT . "web/font-awesome/css/font-awesome.min.css" ?> rel="stylesheet" type="text/css">
 
+    <!--  Custom JavaScript -->
+    <?php
+    if (!empty($data["js"])) {
+        foreach ($data["js"] as $url) {
+            ?>
+            <script type="text/javascript" src="<?php echo WEBROOT . "web/" . $url . ".js" ?>"></script>
+            <?php
+        }
+    }
+    ?>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -128,6 +138,17 @@
 
 <!-- Bootstrap Core JavaScript -->
 <script src="<?php echo WEBROOT . "web/js/bootstrap.min.js" ?>"></script>
+
+<!--  Custom JavaScript -->
+<?php
+if (!empty($data["js"])) {
+    foreach ($data["js"] as $url) {
+        ?>
+        <script type="text/javascript" src="<?php echo WEBROOT . "web/" . $url . ".js" ?>"></script>
+        <?php
+    }
+}
+?>
 
 </body>
 
