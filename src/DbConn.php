@@ -112,4 +112,9 @@ class DbConn
         return $statement;
 
     }
+
+    public function lastInsertId()
+    {
+        return $this->PDOInstance->lastInsertId();
+    }
 }

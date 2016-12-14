@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin - Bootstrap Admin Template</title>
+    <title><?php echo $title; ?></title>
 
     <!-- Bootstrap Core CSS -->
     <link href=<?php echo WEBROOT . "web/css/bootstrap.min.css" ?> rel="stylesheet">
@@ -20,16 +20,8 @@
     <!-- Custom Fonts -->
     <link href=<?php echo WEBROOT . "web/font-awesome/css/font-awesome.min.css" ?> rel="stylesheet" type="text/css">
 
-    <!--  Custom JavaScript -->
-    <?php
-    if (!empty($data["js"])) {
-        foreach ($data["js"] as $url) {
-            ?>
-            <script type="text/javascript" src="<?php echo WEBROOT . "web/" . $url . ".js" ?>"></script>
-            <?php
-        }
-    }
-    ?>
+    <!--  Custom Css -->
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -79,11 +71,20 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
                 <li>
-                    <a href="<?php echo WEBROOT . "article/displayarticles" ?>"><i class="fa fa-fw fa-edit"></i> Article</a>
+                    <a href="javascript:;" data-toggle="collapse" data-target="#article"><i
+                            class="fa fa-fw fa-file"></i> Article <i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="article" class="collapse">
+                        <li>
+                            <a href="<?php echo WEBROOT . "article/newarticle" ?>">Nouveau article</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo WEBROOT . "article/displayarticles" ?>">Liste des articles</a>
+                        </li>
+                    </ul>
                 </li>
                 <li>
                     <a href="javascript:;" data-toggle="collapse" data-target="#user"><i
-                            class="fa fa-fw fa-arrows-v"></i> Utilisateur <i class="fa fa-fw fa-caret-down"></i></a>
+                            class="fa fa-fw fa-user"></i> Utilisateur <i class="fa fa-fw fa-caret-down"></i></a>
                     <ul id="user" class="collapse">
                         <li>
                             <a href="<?php echo WEBROOT . "user/newuser" ?>">Nouveau Utilisateur</a>
@@ -93,6 +94,7 @@
                         </li>
                     </ul>
                 </li>
+
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -101,22 +103,13 @@
     <div id="page-wrapper">
 
         <div class="container-fluid">
-
             <!-- Page Heading -->
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">
-                        Blank Page
-                        <small>Subheading</small>
+                        <?php echo $title; ?>
                     </h1>
-                    <ol class="breadcrumb">
-                        <li>
-                            <i class="fa fa-dashboard"></i> <a href="../../index.php">Dashboard</a>
-                        </li>
-                        <li class="active">
-                            <i class="fa fa-file"></i> Blank Page
-                        </li>
-                    </ol>
+
                 </div>
             </div>
             <!-- /.row -->
@@ -141,11 +134,13 @@
 
 <!--  Custom JavaScript -->
 <?php
-if (!empty($data["js"])) {
-    foreach ($data["js"] as $url) {
-        ?>
-        <script type="text/javascript" src="<?php echo WEBROOT . "web/" . $url . ".js" ?>"></script>
-        <?php
+if (is_array($data)) {
+    if (!empty($data["js"])) {
+        foreach ($data["js"] as $url) {
+            ?>
+            <script type="text/javascript" src="<?php echo WEBROOT . "web/" . $url . ".js" ?>"></script>
+            <?php
+        }
     }
 }
 ?>

@@ -6,6 +6,9 @@
  * Date: 11/12/2016
  * Time: 21:51
  */
+
+require_once ROOT . 'core/File.php';
+
 class Article extends Entity
 {
     /**
@@ -105,6 +108,16 @@ class Article extends Entity
     public function setCategory($category)
     {
         $this->category = $category;
+    }
+
+    public function getContent()
+    {
+        if (is_null($this->id))
+            return null;
+        ob_start();
+        require_once ROOTVIEW . "resource/article" . $this->id . ".php";
+        return ob_get_clean();
+
     }
 
     public function getObjectVars()

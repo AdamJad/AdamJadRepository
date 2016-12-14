@@ -6,8 +6,9 @@
  * Time: 04:41
  */
 ?>
+
+
 <div class="col-lg-12">
-    <h2>Basic Table</h2>
     <div class="table-responsive">
         <table class="table table-hover">
             <thead>

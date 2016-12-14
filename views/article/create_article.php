@@ -7,7 +7,7 @@
  */
 ?>
 <div class="col-lg-12">
-    <form method="post" action="">
+    <form method="post" action="<?php echo WEBROOT . "article/addArticleAction"?>">
         <input type="hidden" name="id" value="">
         <div class="form-group">
             <label for="inputTitle">Titre</label>
@@ -18,14 +18,21 @@
         </div>
         <div class="form-group">
             <label for="inputAbstract">Abstract</label>
-            <textarea type="text" class="form-control" id="inputAbstract"
+            <textarea class="form-control" id="inputAbstract"
                       name="abstract"
                       value=""
                       placeholder="Abstract"></textarea>
         </div>
+        <div class="form-group">
+            <label for="inputContent">Contenu</label>
+            <textarea class="form-control" id="inputContent"
+                      name="content"
+                      value=""
+                      placeholder="Contenu"></textarea>
+        </div>
 
         <div class="form-group">
-            <label for="selectCategory">Role</label>
+            <label for="selectCategory">Categorie</label>
 
             <select class="form-control" id="selectCategory" name="category">
                 <?php
@@ -35,7 +42,6 @@
                     <?php
                 }
                 ?>
-
             </select>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
