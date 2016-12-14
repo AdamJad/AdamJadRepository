@@ -45,7 +45,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="../../index.php">SB Admin</a>
+            <i class="navbar-brand">SciMS</i>
         </div>
         <!-- Top Menu Items -->
         <ul class="nav navbar-right top-nav">
