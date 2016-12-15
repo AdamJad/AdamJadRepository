@@ -68,7 +68,7 @@ class UserController extends Controller
                 "password" => $password
             ));
             if ($user != null) {
-                $_SESSION['user'] = $user;
+                $_SESSION['user'] = serialize($user[0]);
                 $this->rededition("article/displayArticles");
             } else {
                 $data = array(
@@ -81,6 +81,7 @@ class UserController extends Controller
         }
 
     }
+
 
     public function disconnection()
     {

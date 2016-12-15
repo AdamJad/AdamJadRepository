@@ -52,9 +52,10 @@ class Model
         $data = $request->fetchAll(PDO::FETCH_ASSOC);
         if (!$data)
             return false;
+        $i = 0;
         foreach ($data as $row) {
-            $id = $row['id'];
-            $entities[$id] = new $this->class($row);
+            $entities[$i] = new $this->class($row);
+            $i++;
         }
         return $entities;
     }
@@ -93,10 +94,10 @@ class Model
         $data = $request->fetchAll(PDO::FETCH_ASSOC);
         if (!$data)
             return false;
-
+        $i = 0;
         foreach ($data as $row) {
-            $id = $row['id'];
-            $entities[$id] = new $this->class($row);
+            $entities[$i] = new $this->class($row);
+            $i++;
         }
         return $entities;
 

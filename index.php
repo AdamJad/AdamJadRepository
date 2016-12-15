@@ -48,14 +48,11 @@ if (is_file($urlController)) {
             }
             call_user_func_array(array($controller, $action), $args);
         } else {
-            echo 3;
             require_once ROOTVIEW . 'views/error/404.php';
         }
     } else {
-        echo 2;
         require_once ROOTVIEW . 'views/error/404.php';
     }
 } else {
-    echo 1;
     require_once ROOTVIEW . 'views/error/404.php';
 }
