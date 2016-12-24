@@ -50,8 +50,10 @@
                     <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Categorie</button>
                 </p>
                 <div class="jumbotron">
-                    <h1><?php echo $data["articles"][0]->getTitle() ?></h1>
-                    <p><?php echo trim(preg_replace('/<[^>]*>/', ' ', $data["articles"][0]->getAbstract())); ?></p>
+                    <h3><?php echo $data["articles"][0]->getTitle() ?></h3>
+                    <p><?php echo substr(preg_replace('/<[^>]*>/', ' ', $article->getAbstract()), 0, 100) . "..."; ?><a
+                            href="<?php echo WEBROOT . "article/displayarticle/" . $data["articles"][0]->getId(); ?>"></a>
+                    </p>
                 </div>
                 <div class="row">
                     <?php
@@ -59,7 +61,7 @@
                         ?>
                         <div class="col-xs-6 col-lg-4">
                             <h2><?php echo $data["articles"][$i]->getTitle() ?></h2>
-                            <p><?php echo trim(preg_replace('/<[^>]*>/', ' ', $data["articles"][$i]->getAbstract())); ?></p>
+                            <p><?php echo substr(preg_replace('/<[^>]*>/', ' ', $article->getAbstract()), 0, 100) . "..."; ?></p>
                             <p><a class="btn btn-default"
                                   href="<?php echo WEBROOT . "article/displayarticle/" . $data["articles"][$i]->getId(); ?>"
                                   role="button">Lire la suit &raquo;</a></p>

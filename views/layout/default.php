@@ -57,12 +57,13 @@ $user = unserialize($_SESSION['user']);
                         <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                        <a href="<?php echo WEBROOT . "user/updateuser/" . $user->getId(); ?>"><i
+                                class="fa fa-fw fa-gear"></i> Parameter</a>
                     </li>
                     <li class="divider"></li>
                     <li>
-                        <a href="<?php echo WEBROOT . "user/disconnection" ?>"><i class="fa fa-fw fa-power-off"></i> Log
-                            Out</a>
+                        <a href="<?php echo WEBROOT . "user/disconnection" ?>"><i class="fa fa-fw fa-power-off"></i>
+                            Déconnexion </a>
                     </li>
                 </ul>
             </li>

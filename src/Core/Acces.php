@@ -49,6 +49,7 @@ class Acces
                 "user/updateuseraction",
                 "user/displayusers",
                 "#^user\/updateuser\/[0-9]*$#",
+                "#^user\/deleteuser\/[0-9]*$#",
 
             ), Acces::initApp()
         );
@@ -59,6 +60,7 @@ class Acces
         return array_merge(
             array(
                 "#^article\/updatearticle\/[0-9]*$#",
+                "#^article\/deletearticle\/[0-9]*$#",
                 "article/displayarticles",
                 "article/newarticle",
                 "article/addarticleaction",

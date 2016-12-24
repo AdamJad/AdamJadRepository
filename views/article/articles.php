@@ -19,19 +19,23 @@
             </thead>
             <tbody>
             <?php
-            foreach ($data as $article) {
-                ?>
-                <tr>
-                    <td><?php echo $article->getTitle(); ?></td>
-                    <td><?php echo substr(preg_replace('/<[^>]*>/', ' ', $article->getAbstract()), 0, 50) . "..."; ?></td>
-                    <td><?php echo $article->getCategory(); ?></td>
-                    <td>
-                        <a href="<?php echo WEBROOT . "article/updatearticle/" . $article->getId(); ?>"
-                           class="span6 btn btn-success btn-xs">modifier</a>
-                        <a href="#" class="span6 btn btn-danger btn-xs">supprimer</a>
-                    </td>
-                </tr>
-                <?php
+            if (!empty($data)) {
+                foreach ($data as $article) {
+                    ?>
+                    <tr>
+                        <td><?php echo $article->getTitle(); ?></td>
+                        <td><?php echo substr(preg_replace('/<[^>]*>/', ' ', $article->getAbstract()), 0, 50) . "..."; ?></td>
+                        <td><?php echo $article->getCategory(); ?></td>
+                        <td>
+                            <a href="<?php echo WEBROOT . "article/updatearticle/" . $article->getId(); ?>"
+                               class="span6 btn btn-success btn-xs">modifier</a>
+                            <a href="<?php echo WEBROOT . "article/deletearticle/" . $article->getId(); ?>"
+                               class="span6 btn btn-danger btn-xs">supprimer</a>
+                        </td>
+                    </tr>
+                    <?php
+                }
+
             }
             ?>
 

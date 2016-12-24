@@ -26,15 +26,14 @@
 
     <div class="form">
         <?php echo $data["MessageError"] ?>
-        <h2>Login to your account</h2>
+        <h2>Connectez-vous</h2>
         <form method="post" name="fromm" action="<?php echo WEBROOT . "user/authenticate" ?>">
-            <input type="text" placeholder="Username" name="username"/>
-            <input type="password" placeholder="Password" name="password"/>
-            <button name="submit"> Login</button>
+            <input type="text" placeholder="Utilisateur" name="username"/>
+            <input type="password" placeholder="Mot de passe" name="password"/>
+            <button name="submit"> Connexion</button>
         </form>
     </div>
-
-    <div class="cta"><a href="">Forgot your password?</a></div>
+    <div class="cta"></div>
 </div>
 
 </body>

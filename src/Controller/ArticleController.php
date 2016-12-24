@@ -37,7 +37,7 @@ class ArticleController extends Controller
 
     public function displayArticles()
     {
-        $user = $user = unserialize($_SESSION['user']);
+        $user = unserialize($_SESSION['user']);
         $data = $this->getModel("article")->findAllBy(array(
             "user" => $user->getId()
 
@@ -50,7 +50,17 @@ class ArticleController extends Controller
         $data = $this->getModel("article")->findById($id);
         if (!$data)
             Controller::error();
-        $this->render("article", $data->getTitle(), $data,False);
+        $this->render("article", $data->getTitle(), $data, False);
+    }
+
+    public function deleteArticle($id)
+    {
+        $this->getModel("article")->deleteById($id);
+        $url = ROOTVIEW . "resource/article" . $id . ".php";
+        if (is_file($url)) {
+            unlink($url);
+        }
+        $this->rededition("user/displayarticles");
     }
 
     public function newArticle()

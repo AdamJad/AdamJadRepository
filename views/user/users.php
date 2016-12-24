@@ -21,19 +21,23 @@
             </thead>
             <tbody>
             <?php
-            foreach ($data as $user) {
-                ?>
-                <tr>
-                    <td><?php echo $user->getFirstName() . " " . $user->getLastName(); ?></td>
-                    <td><?php echo $user->getUserName(); ?></td>
-                    <td><?php echo $user->displayRole(); ?></td>
-                    <td>
-                        <a href="<?php echo WEBROOT . "user/updateuser/" . $user->getId(); ?>"
-                           class="span6 btn btn-success btn-xs">modifier</a>
-                        <a href="#" class="span6 btn btn-danger btn-xs">supprimer</a>
-                    </td>
-                </tr>
-                <?php
+            if (!empty($data)) {
+                foreach ($data as $user) {
+                    ?>
+                    <tr>
+                        <td><?php echo $user->getFirstName() . " " . $user->getLastName(); ?></td>
+                        <td><?php echo $user->getUserName(); ?></td>
+                        <td><?php echo $user->displayRole(); ?></td>
+                        <td>
+                            <a href="<?php echo WEBROOT . "user/updateuser/" . $user->getId(); ?>"
+                               class="span6 btn btn-success btn-xs">modifier</a>
+                            <a href="<?php echo WEBROOT . "user/deleteuser/" . $user->getId(); ?>"
+                               class="span6 btn btn-danger btn-xs">supprimer</a>
+                        </td>
+                    </tr>
+                    <?php
+                }
+
             }
             ?>
 

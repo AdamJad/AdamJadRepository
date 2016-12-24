@@ -77,6 +77,32 @@ class Model
         //echo $query;
     }
 
+    public function findAllDifferent($params)
+    {
+        $condition = "";
+        $i = 0;
+        foreach ($params as $key => $value) {
+            $condition .= $key . "!=:vars" . $i . " and ";
+            $vars["vars" . $i] = $value;
+            $i++;
+        }
+        $condition = substr($condition, 0, -4);
+        $query = "SELECT * FROM " . $this->class . " WHERE " . $condition;
+
+        $request = $this->getDbConn()->execute($query, $vars);
+        $data = $request->fetchAll(PDO::FETCH_ASSOC);
+        if (!$data)
+            return false;
+        $i = 0;
+        foreach ($data as $row) {
+            $entities[$i] = new $this->class($row);
+            $i++;
+        }
+        return $entities;
+
+        //print_r($vars);
+        //echo $query;
+    }
 
     public function findAllBy($params)
     {
@@ -135,6 +161,18 @@ class Model
         $query = "DELETE FROM " . get_class($object) . " WHERE id=:id";
         $vars = array(
             "id" => $object->getId()
+        );
+        $this->getDbConn()->execute($query, $vars);
+
+        //print_r($vars);
+        //echo $query;
+    }
+
+    public function deleteById($id)
+    {
+        $query = "DELETE FROM " . $this->class . " WHERE id=:id";
+        $vars = array(
+            "id" => $id
         );
         $this->getDbConn()->execute($query, $vars);
 

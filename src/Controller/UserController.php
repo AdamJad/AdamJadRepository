@@ -11,13 +11,24 @@ class UserController extends Controller
 
     public function displayUsers()
     {
-        $data = $this->getModel("user")->findAll();
+        $user = unserialize($_SESSION['user']);
+        $data = $this->getModel("user")->findAllDifferent(
+            array(
+                "id" => $user->getId()
+            )
+        );
         $this->render("users", "Liste des utilisateur", $data);
     }
 
     public function newUser()
     {
         $this->render("update_create_user", "Nouveau Utilisateur");
+    }
+
+    public function deleteUser($id)
+    {
+        $this->getModel("user")->deleteById($id);
+        $this->rededition("user/displayusers");
     }
 
     public function updateUser($id)
@@ -28,7 +39,7 @@ class UserController extends Controller
 
     public function updateUserAction()
     {
-        if (!empty($_POST["id"]) and !empty($_POST["firstName"]) and !empty($_POST["lastName"]) and !empty($_POST["userName"]) and !empty($_POST["email"]) and !empty($_POST["password"]) and !empty($_POST["role"])) {
+        if (!empty($_POST["id"]) and !empty($_POST["firstName"]) and !empty($_POST["lastName"]) and !empty($_POST["userName"]) and !empty($_POST["email"]) and !empty($_POST["password"])) {
             $user = new User();
             $user->setId($_POST["id"]);
             $user->setFirstName($_POST["firstName"]);
@@ -47,9 +58,8 @@ class UserController extends Controller
 
     public function addUserAction()
     {
-        if (!empty($_POST["id"]) and !empty($_POST["firstName"]) and !empty($_POST["lastName"]) and !empty($_POST["userName"]) and !empty($_POST["email"]) and !empty($_POST["password"]) and !empty($_POST["role"])) {
+        if (!empty($_POST["firstName"]) and !empty($_POST["lastName"]) and !empty($_POST["userName"]) and !empty($_POST["email"]) and !empty($_POST["password"])) {
             $user = new User();
-            $user->setId($_POST["id"]);
             $user->setFirstName($_POST["firstName"]);
             $user->setLastName($_POST["lastName"]);
             $user->setUsername($_POST["userName"]);
@@ -59,6 +69,7 @@ class UserController extends Controller
             $this->getModel()->save($user);
             $this->rededition("user/displayUsers");
         } else {
+            echo "error";
             Controller::error();
         }
     }

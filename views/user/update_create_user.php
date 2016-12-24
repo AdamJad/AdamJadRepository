@@ -66,7 +66,6 @@ if (!empty($data)) {
                         <option value="<?php echo $value ?>"><?php echo $key ?></option>
                         <?php
                     }
-
                 }
                 ?>
 
