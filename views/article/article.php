@@ -1,12 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><?php echo $title; ?></title>
+</head>
+<body>
 <?php
-/**
- * Created by PhpStorm.
- * User: Adam
- * Date: 13/12/2016
- * Time: 14:46
- */
 
-echo $data->getTitle();
-echo $data->getAbstract();
-echo $data->getContent();
-echo $data->getCategory();
+$article = $data;
+echo $article->getTitle();
+echo $article->getAbstract();
+echo $article->getContent();
+echo $article->getCategory();
+?>
+</body>
+</html>

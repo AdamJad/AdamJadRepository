@@ -30,7 +30,7 @@ class Acces
     private static function initApp()
     {
         return array(
-            "user/disconnection"
+            "user/disconnection",
         );
     }
 
@@ -52,14 +52,29 @@ class Acces
         return array_merge(
             array(
                 "#^article\/updatearticle\/[0-9]*$#",
+                "#^article\/displayarticle\/[0-9]*$#",
+                "#^article\/displayArticlesBy\/[0-9]*$#",
                 "article/displayarticles",
                 "article/newarticle",
                 "article/addarticleaction",
+                "article/displayallarticles",
                 "article/updatearticleaction",
                 "category/newcategory",
                 "category/addcategoryaction"
             ), Acces::initApp()
         );
+    }
+
+    private static function initAnonyme()
+    {
+        return array(
+            "user/authenticate"
+        );
+    }
+
+    public static function isAnonyme($get)
+    {
+        return Acces::pregMatch($get, Acces::initAnonyme());
     }
 
     public static function isAllow($get, $role)

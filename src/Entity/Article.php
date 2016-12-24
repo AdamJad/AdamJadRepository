@@ -30,6 +30,28 @@ class Article extends Entity
      * @var string
      */
     private $abstract;
+    /**
+     * L'identifiant de l'ecivan d'article
+     *
+     * @var int
+     */
+    private $user;
+
+    /**
+     * @return int
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param int $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
 
 
     /**

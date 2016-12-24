@@ -11,9 +11,37 @@ require_once ROOT . 'Entity/Category.php';
 
 class ArticleController extends Controller
 {
+    public function displayAllArticles()
+    {
+        $data = array(
+            "articles" => $this->getModel("article")->findAll(),
+            "categories" => $this->getModel("category")->findAll()
+        );
+
+        $this->render("all_articles", "Liste des articles", $data, false);
+    }
+
+    public function displayArticlesBy($category)
+    {
+
+        $data = array(
+            "articles" => $this->getModel("article")->findAllBy(array(
+                "category" => $category
+            )),
+            "categories" => $this->getModel("category")->findAll(),
+            "isAll" => $category
+        );
+
+        $this->render("all_articles", "Liste des articles", $data, false);
+    }
+
     public function displayArticles()
     {
-        $data = $this->getModel("article")->findAll();
+        $user = $user = unserialize($_SESSION['user']);
+        $data = $this->getModel("article")->findAllBy(array(
+            "user" => $user->getId()
+
+        ));
         $this->render("articles", "Liste des articles", $data);
     }
 
@@ -22,7 +50,7 @@ class ArticleController extends Controller
         $data = $this->getModel("article")->findById($id);
         if (!$data)
             Controller::error();
-        $this->render("article", $data->getTitle(), $data);
+        $this->render("article", $data->getTitle(), $data,False);
     }
 
     public function newArticle()
@@ -58,6 +86,8 @@ class ArticleController extends Controller
             $article->setTitle($_POST["title"]);
             $article->setAbstract($_POST["abstract"]);
             $article->setCategory($_POST["category"]);
+            $user = unserialize($_SESSION['user']);
+            $article->setUser($user->getId());
             $id = $this->getModel()->save($article);
             if (!is_null($id)) {
                 File::createFile(ROOTVIEW . "resource/article" . $id . ".php", $_POST["content"]);

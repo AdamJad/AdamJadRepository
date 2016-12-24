@@ -52,9 +52,7 @@ class Controller
             return Acces::isAllow($param, $user->getRole());
         } else {
             return "user/authenticate";
-
         }
-
     }
 
     public static function error()

@@ -61,10 +61,12 @@ if (!empty($data)) {
                         ?>
                         <option value="<?php echo $value ?>" selected><?php echo $key ?></option>
                         <?php
+                    } else {
+                        ?>
+                        <option value="<?php echo $value ?>"><?php echo $key ?></option>
+                        <?php
                     }
-                    ?>
-                    <option value="<?php echo $value ?>"><?php echo $key ?></option>
-                    <?php
+
                 }
                 ?>
 

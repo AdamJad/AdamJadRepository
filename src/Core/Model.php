@@ -125,6 +125,7 @@ class Model
         $query = "INSERT INTO " . get_class($object) . " ( " . $fields . " ) VALUES ( " . $values . " )";
         $this->getDbConn()->execute($query, $vars);
         return $this->getDbConn()->lastInsertId();
+
         //print_r($vars);
         //echo $query;
     }

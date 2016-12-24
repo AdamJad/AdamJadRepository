@@ -8,6 +8,7 @@
 ?>
 <div class="col-lg-12">
     <form method="post" action="<?php echo WEBROOT . "article/addarticleaction"?>">
+        <input name="image" type="file" id="upload" class="hidden" hidden='hidden' onchange="">
         <input type="hidden" name="id" value="">
         <div class="form-group">
             <label for="inputTitle">Titre</label>
@@ -30,7 +31,6 @@
                       value=""
                       placeholder="Contenu"></textarea>
         </div>
-
         <div class="form-group">
             <label for="selectCategory">Categorie</label>
 

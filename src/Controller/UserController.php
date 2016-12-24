@@ -28,29 +28,36 @@ class UserController extends Controller
 
     public function updateUserAction()
     {
-        //salem ajouter tout les champs
-        if (!empty($_POST["id"]) and !empty($_POST["userName"]) and !empty($_POST["email"])) {
+        if (!empty($_POST["id"]) and !empty($_POST["firstName"]) and !empty($_POST["lastName"]) and !empty($_POST["userName"]) and !empty($_POST["email"]) and !empty($_POST["password"]) and !empty($_POST["role"])) {
             $user = new User();
             $user->setId($_POST["id"]);
+            $user->setFirstName($_POST["firstName"]);
+            $user->setLastName($_POST["lastName"]);
             $user->setUsername($_POST["userName"]);
             $user->setEmail($_POST["email"]);
+            $user->setPassword($_POST["password"]);
+            $user->setRole($_POST["role"]);
             $this->getModel()->update($user);
+            $this->rededition("user/displayUsers");
         } else {
             Controller::error();
         }
-
-
     }
+
 
     public function addUserAction()
     {
-        //salem ajouter tout les champs
-        if (!empty($_POST["userName"]) and !empty($_POST["email"])) {
+        if (!empty($_POST["id"]) and !empty($_POST["firstName"]) and !empty($_POST["lastName"]) and !empty($_POST["userName"]) and !empty($_POST["email"]) and !empty($_POST["password"]) and !empty($_POST["role"])) {
             $user = new User();
+            $user->setId($_POST["id"]);
+            $user->setFirstName($_POST["firstName"]);
+            $user->setLastName($_POST["lastName"]);
+            $user->setUsername($_POST["userName"]);
             $user->setEmail($_POST["email"]);
-            $user->setUsername($_POST["username"]);
+            $user->setPassword($_POST["password"]);
+            $user->setRole($_POST["role"]);
             $this->getModel()->save($user);
-            $this->rededition("user/displayusers");
+            $this->rededition("user/displayUsers");
         } else {
             Controller::error();
         }
@@ -58,7 +65,6 @@ class UserController extends Controller
 
     public function authenticate()
     {
-
         if (!empty($_POST["password"]) && !empty($_POST["username"])) {
             $password = $_POST["password"];
             $username = $_POST["username"];
@@ -76,10 +82,10 @@ class UserController extends Controller
                 $data = array(
                     "MessageError" => "Le nom d'utilisateur ou le mot de passe est incorrect"
                 );
-                $this->render("authenticate", "Autontifation", $data, false);
+                $this->render("authenticate", "Authentification", $data, false);
             }
         } else {
-            $this->render("authenticate", "Autontifation", null, false);
+            $this->render("authenticate", "Authentification", null, false);
         }
     }
 

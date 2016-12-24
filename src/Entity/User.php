@@ -21,7 +21,7 @@ class User extends Entity
      * @const
      */
     const WRITTER = 0;
-    
+
 
     /**
      * L'identifiant de l'utilisateur
