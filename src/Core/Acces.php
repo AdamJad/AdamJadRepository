@@ -27,10 +27,15 @@ class Acces
 
     const DefaultUrlWritter = "article/displayarticles";
 
+    const DefaultUrlAnonym = "article/displayallarticles";
+
     private static function initApp()
     {
         return array(
             "user/disconnection",
+            "#^article\/displayArticlesBy\/[0-9]*$#",
+            "article/displayallarticles",
+            "#^article\/displayarticle\/[0-9]*$#",
         );
     }
 
@@ -41,8 +46,10 @@ class Acces
                 "user/displayusers",
                 "user/newuser",
                 "user/adduseraction",
+                "user/updateuseraction",
                 "user/displayusers",
-                "#^user\/updateuser\/[0-9]*$#"
+                "#^user\/updateuser\/[0-9]*$#",
+
             ), Acces::initApp()
         );
     }
@@ -52,12 +59,9 @@ class Acces
         return array_merge(
             array(
                 "#^article\/updatearticle\/[0-9]*$#",
-                "#^article\/displayarticle\/[0-9]*$#",
-                "#^article\/displayArticlesBy\/[0-9]*$#",
                 "article/displayarticles",
                 "article/newarticle",
                 "article/addarticleaction",
-                "article/displayallarticles",
                 "article/updatearticleaction",
                 "category/newcategory",
                 "category/addcategoryaction"
@@ -68,7 +72,10 @@ class Acces
     private static function initAnonyme()
     {
         return array(
-            "user/authenticate"
+            "#^article\/displayArticlesBy\/[0-9]*$#",
+            "article/displayallarticles",
+            "#^article\/displayarticle\/[0-9]*$#",
+            "user/authenticate",
         );
     }
 

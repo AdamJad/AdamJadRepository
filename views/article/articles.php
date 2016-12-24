@@ -23,7 +23,7 @@
                 ?>
                 <tr>
                     <td><?php echo $article->getTitle(); ?></td>
-                    <td><?php echo $article->getAbstract(); ?></td>
+                    <td><?php echo substr(preg_replace('/<[^>]*>/', ' ', $article->getAbstract()), 0, 50) . "..."; ?></td>
                     <td><?php echo $article->getCategory(); ?></td>
                     <td>
                         <a href="<?php echo WEBROOT . "article/updatearticle/" . $article->getId(); ?>"

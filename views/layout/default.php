@@ -70,30 +70,47 @@ $user = unserialize($_SESSION['user']);
         <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
-                <li>
-                    <a href="javascript:;" data-toggle="collapse" data-target="#article"><i
-                            class="fa fa-fw fa-file"></i> Article <i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="article" class="collapse">
+                <?php
+                switch ($user->getRole()) {
+                    case User::ADMIN:
+                        echo "admin";
+                        ?>
                         <li>
-                            <a href="<?php echo WEBROOT . "article/newarticle" ?>">Nouveau article</a>
+                            <a href="javascript:;" data-toggle="collapse" data-target="#user"><i
+                                    class="fa fa-fw fa-user"></i> Utilisateur <i class="fa fa-fw fa-caret-down"></i></a>
+                            <ul id="user" class="collapse">
+                                <li>
+                                    <a href="<?php echo WEBROOT . "user/newuser" ?>">Nouveau Utilisateur</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo WEBROOT . "user/displayusers" ?>">Liste Utilistateur</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <?php
+                        break;
+                    case User::WRITTER:
+                        ?>
+                        <li>
+                            <a href="javascript:;" data-toggle="collapse" data-target="#article"><i
+                                    class="fa fa-fw fa-file"></i> Article <i class="fa fa-fw fa-caret-down"></i></a>
+                            <ul id="article" class="collapse">
+                                <li>
+                                    <a href="<?php echo WEBROOT . "article/newarticle" ?>">Nouveau article</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo WEBROOT . "article/displayarticles" ?>">Liste des articles</a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
-                            <a href="<?php echo WEBROOT . "article/displayarticles" ?>">Liste des articles</a>
+                            <a href="<?php echo WEBROOT . "category/newcategory" ?>">Nouveau Categorie</a>
                         </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="javascript:;" data-toggle="collapse" data-target="#user"><i
-                            class="fa fa-fw fa-user"></i> Utilisateur <i class="fa fa-fw fa-caret-down"></i></a>
-                    <ul id="user" class="collapse">
-                        <li>
-                            <a href="<?php echo WEBROOT . "user/newuser" ?>">Nouveau Utilisateur</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo WEBROOT . "user/displayusers" ?>">Liste Utilistateur</a>
-                        </li>
-                    </ul>
-                </li>
+                        <?php
+                        break;
+                }
+                ?>
+
 
             </ul>
         </div>

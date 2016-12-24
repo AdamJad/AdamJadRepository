@@ -51,7 +51,13 @@ class Controller
             }
             return Acces::isAllow($param, $user->getRole());
         } else {
-            return "user/authenticate";
+            if ($param == "") {
+                return Acces::DefaultUrlAnonym;
+            }
+            $out = Acces::isAnonyme($param);
+            if (!$out)
+                Controller::error();
+            return $param;
         }
     }
 

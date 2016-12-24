@@ -66,7 +66,7 @@ class DbConn
             $this->PDOInstance = new PDO('mysql:dbname=' . self::DB . ';host=' . self::HOST, self::USER, self::PASSWORD);
             $this->PDOInstance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (Exception $e) {
-            echo 'Erreur : ' . $e->getMessage() . '<br />';
+            echo 'Error : ' . $e->getMessage() . '<br />';
             die();
         }
     }
