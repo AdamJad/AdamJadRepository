@@ -14,16 +14,19 @@ require_once ROOT . 'DbConn.php';
 require_once ROOT . 'core/Model.php';
 require_once ROOT . 'core/Entity.php';
 require_once ROOT . 'core/Controller.php';
+require_once ROOT . 'core/Acces.php';
+require_once ROOT . 'Entity/User.php';
 
 
 $get = (!empty($_GET["p"])) ? $_GET["p"] : "";
 
-
 $get = Controller::Router($get);
+if (!$get)
+    Controller::error();
 
 $params = explode('/', $get);
-$controller = $params[0] = (!empty($params[0])) ? $params[0] : "user";
-$action = $params[1] = (!empty($params[1])) ? $params[1] : "displayUsers";
+$controller = $params[0];
+$action = $params[1];
 $entity = ucfirst(strtolower($controller));
 $controller = ucfirst(strtolower($controller)) . 'Controller';
 
@@ -48,11 +51,11 @@ if (is_file($urlController)) {
             }
             call_user_func_array(array($controller, $action), $args);
         } else {
-            require_once ROOTVIEW . 'views/error/404.php';
+            Controller::error();
         }
     } else {
-        require_once ROOTVIEW . 'views/error/404.php';
+        Controller::error();
     }
 } else {
-    require_once ROOTVIEW . 'views/error/404.php';
+    Controller::error();
 }

@@ -8,10 +8,10 @@
 $url = WEBROOT . "user/";
 if (!empty($data)) {
     $user = $data;
-    $url .= "updateUserAction";
+    $url .= "updateuseraction";
 } else {
     $user = new User();
-    $url .= "addUserAction";
+    $url .= "adduseraction";
 }
 ?>
 <div class="col-lg-12">

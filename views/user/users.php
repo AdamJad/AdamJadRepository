@@ -28,7 +28,7 @@
                     <td><?php echo $user->getUserName(); ?></td>
                     <td><?php echo $user->displayRole(); ?></td>
                     <td>
-                        <a href="<?php echo WEBROOT . "user/updateUser/" . $user->getId(); ?>"
+                        <a href="<?php echo WEBROOT . "user/updateuser/" . $user->getId(); ?>"
                            class="span6 btn btn-success btn-xs">modifier</a>
                         <a href="#" class="span6 btn btn-danger btn-xs">supprimer</a>
                     </td>

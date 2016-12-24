@@ -26,7 +26,7 @@
                     <td><?php echo $article->getAbstract(); ?></td>
                     <td><?php echo $article->getCategory(); ?></td>
                     <td>
-                        <a href="<?php echo WEBROOT . "article/updateArticle/" . $article->getId(); ?>"
+                        <a href="<?php echo WEBROOT . "article/updatearticle/" . $article->getId(); ?>"
                            class="span6 btn btn-success btn-xs">modifier</a>
                         <a href="#" class="span6 btn btn-danger btn-xs">supprimer</a>
                     </td>

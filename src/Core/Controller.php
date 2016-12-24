@@ -33,7 +33,7 @@ class Controller
                 echo $content_for_layout;
             }
         } else {
-            require_once ROOTVIEW . 'views/error/view_404.php';
+            Controller::error();
         }
     }
 
@@ -45,10 +45,11 @@ class Controller
     public static function Router($param)
     {
         if (!empty($_SESSION["user"])) {
-            if ($param == "user/authenticate") {
-                $param = "article/displayArticles";
+            $user = unserialize($_SESSION['user']);
+            if ($param == "user/authenticate" || $param == "") {
+                return Acces::defaultUrl($user->getRole());
             }
-            return $param;
+            return Acces::isAllow($param, $user->getRole());
         } else {
             return "user/authenticate";
 
@@ -56,4 +57,9 @@ class Controller
 
     }
 
+    public static function error()
+    {
+        require_once ROOTVIEW . 'views/error/404.php';
+        exit();
+    }
 }

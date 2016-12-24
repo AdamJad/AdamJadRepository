@@ -20,7 +20,9 @@ class ArticleController extends Controller
     public function displayArticle($id)
     {
         $data = $this->getModel("article")->findById($id);
-        $this->render("article", "hhhhhh", $data);
+        if (!$data)
+            Controller::error();
+        $this->render("article", $data->getTitle(), $data);
     }
 
     public function newArticle()
@@ -58,18 +60,29 @@ class ArticleController extends Controller
             $article->setCategory($_POST["category"]);
             $id = $this->getModel()->save($article);
             if (!is_null($id)) {
-                File::createFile(ROOTVIEW . "resource/article" . $this->id . ".php", $_POST["content"]);
-                $this->rededition("article/displayArticles");
+                File::createFile(ROOTVIEW . "resource/article" . $id . ".php", $_POST["content"]);
+                $this->rededition("article/displayarticles");
             } else {
-                $this->rededition("article/newArticle");
+                $this->rededition("article/newarticle");
             }
         } else {
-            $this->rededition("article/newArticle");
+            $this->rededition("article/newarticle");
         }
     }
 
     public function updateArticleAction()
     {
+        if (!empty($_POST["id"]) and !empty($_POST["title"]) and !empty($_POST["abstract"]) and !empty($_POST["content"]) and !empty($_POST["category"])) {
+            $article = $this->getModel("article")->findById($_POST["id"]);
+            $article->setTitle($_POST["title"]);
+            $article->setAbstract($_POST["abstract"]);
+            $article->setCategory($_POST["category"]);
+            $this->getModel()->update($article);
+            File::createFile(ROOTVIEW . "resource/article" . $_POST["id"] . ".php", $_POST["content"]);
+            $this->rededition("article/displayarticles");
+        } else {
+            $this->rededition("article/newarticle");
+        }
 
     }
 }

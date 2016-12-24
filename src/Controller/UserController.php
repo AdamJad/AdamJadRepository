@@ -12,7 +12,6 @@ class UserController extends Controller
     public function displayUsers()
     {
         $data = $this->getModel("user")->findAll();
-
         $this->render("users", "Liste des utilisateur", $data);
     }
 
@@ -37,7 +36,7 @@ class UserController extends Controller
             $user->setEmail($_POST["email"]);
             $this->getModel()->update($user);
         } else {
-            require_once ROOTVIEW . 'views/error/404.php';
+            Controller::error();
         }
 
 
@@ -51,9 +50,9 @@ class UserController extends Controller
             $user->setEmail($_POST["email"]);
             $user->setUsername($_POST["username"]);
             $this->getModel()->save($user);
-            $this->rededition("user/displayUser");
+            $this->rededition("user/displayusers");
         } else {
-            require_once ROOTVIEW . 'views/error/404.php';
+            Controller::error();
         }
     }
 
@@ -69,7 +68,10 @@ class UserController extends Controller
             ));
             if ($user != null) {
                 $_SESSION['user'] = serialize($user[0]);
-                $this->rededition("article/displayArticles");
+                $get = Acces::defaultUrl($user[0]->getRole());
+                if (!$get)
+                    Controller::error();
+                $this->rededition($get);
             } else {
                 $data = array(
                     "MessageError" => "Le nom d'utilisateur ou le mot de passe est incorrect"
@@ -79,9 +81,7 @@ class UserController extends Controller
         } else {
             $this->render("authenticate", "Autontifation", null, false);
         }
-
     }
-
 
     public function disconnection()
     {

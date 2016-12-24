@@ -7,7 +7,7 @@
  */
 ?>
 <div class="col-lg-12">
-    <form method="post" action="<?php echo WEBROOT . "article/addArticleAction"?>">
+    <form method="post" action="<?php echo WEBROOT . "article/addarticleaction"?>">
         <input type="hidden" name="id" value="">
         <div class="form-group">
             <label for="inputTitle">Titre</label>
