@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9aca286f-5b49-4452-adfc-2719c4de6b26" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/ArticleController.php" afterPath="$PROJECT_DIR$/src/Controller/ArticleController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/article/articles.php" afterPath="$PROJECT_DIR$/views/article/articles.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/layout/default.php" afterPath="$PROJECT_DIR$/views/layout/default.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/article/all_articles.php" afterPath="$PROJECT_DIR$/views/article/all_articles.php" />
     </list>
     <ignored path="AdamJadRepository.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -58,11 +55,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ArticleController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ArticleController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/ArticleController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="41" column="116" selection-start-line="41" selection-start-column="116" selection-end-line="41" selection-end-column="116" />
+            <state relative-caret-position="494">
+              <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
               <folding>
                 <marker date="1482616441586" expanded="true" signature="985:1136" ph="SELECT artic... article" />
               </folding>
@@ -127,11 +124,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="all_articles.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="all_articles.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/article/all_articles.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="38" column="22" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
+            <state relative-caret-position="272">
+              <caret line="53" column="131" selection-start-line="53" selection-start-column="131" selection-end-line="53" selection-end-column="131" />
               <folding />
             </state>
           </provider>
@@ -198,11 +195,11 @@
         <option value="$PROJECT_DIR$/views/user/authenticate.php" />
         <option value="$PROJECT_DIR$/src/Core/Acces.php" />
         <option value="$PROJECT_DIR$/views/user/update_create_user.php" />
-        <option value="$PROJECT_DIR$/views/article/all_articles.php" />
         <option value="$PROJECT_DIR$/views/layout/default.php" />
         <option value="$PROJECT_DIR$/src/Controller/UserController.php" />
         <option value="$PROJECT_DIR$/views/article/articles.php" />
         <option value="$PROJECT_DIR$/src/Controller/ArticleController.php" />
+        <option value="$PROJECT_DIR$/views/article/all_articles.php" />
       </list>
     </option>
   </component>
@@ -514,12 +511,12 @@
       <workItem from="1482358217165" duration="164000" />
       <workItem from="1482445588550" duration="7203000" />
       <workItem from="1482526210799" duration="12091000" />
-      <workItem from="1482575792748" duration="32670000" />
+      <workItem from="1482575792748" duration="33042000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="213036000" />
+    <option name="totallyTimeSpent" value="213408000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -884,14 +881,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/article/all_articles.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="38" column="22" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/article/test.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -920,11 +909,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/ArticleController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="41" column="116" selection-start-line="41" selection-start-column="116" selection-end-line="41" selection-end-column="116" />
+        <state relative-caret-position="494">
+          <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
           <folding>
             <marker date="1482616441586" expanded="true" signature="985:1136" ph="SELECT artic... article" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/article/all_articles.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="53" column="131" selection-start-line="53" selection-start-column="131" selection-end-line="53" selection-end-column="131" />
+          <folding />
         </state>
       </provider>
     </entry>

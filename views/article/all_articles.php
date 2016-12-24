@@ -51,8 +51,8 @@
                 </p>
                 <div class="jumbotron">
                     <h3><?php echo $data["articles"][0]->getTitle() ?></h3>
-                    <p><?php echo substr(preg_replace('/<[^>]*>/', ' ', $article->getAbstract()), 0, 100) . "..."; ?><a
-                            href="<?php echo WEBROOT . "article/displayarticle/" . $data["articles"][0]->getId(); ?>"></a>
+                    <p><?php echo substr(preg_replace('/<[^>]*>/', ' ', $data["articles"][0]->getAbstract()), 0, 100) . "..."; ?><a
+                            href="<?php echo WEBROOT . "article/displayarticle/" . $data["articles"][0]->getId(); ?>">Lire la suit</a>
                     </p>
                 </div>
                 <div class="row">
