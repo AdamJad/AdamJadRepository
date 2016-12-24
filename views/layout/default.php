@@ -74,7 +74,6 @@ $user = unserialize($_SESSION['user']);
                 <?php
                 switch ($user->getRole()) {
                     case User::ADMIN:
-                        echo "admin";
                         ?>
                         <li>
                             <a href="javascript:;" data-toggle="collapse" data-target="#user"><i

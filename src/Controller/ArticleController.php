@@ -38,10 +38,13 @@ class ArticleController extends Controller
     public function displayArticles()
     {
         $user = unserialize($_SESSION['user']);
-        $data = $this->getModel("article")->findAllBy(array(
-            "user" => $user->getId()
 
-        ));
+        $query = "SELECT article.id,article.title,article.abstract,category.description FROM article, category WHERE article.category = category.id AND article.user =:id";
+        $vars = array(
+            "id" => $user->getId()
+        );
+        $request = $this->getModel()->getDbConn()->execute($query, $vars);
+        $data = $request->fetchAll(PDO::FETCH_ASSOC);
         $this->render("articles", "Liste des articles", $data);
     }
 

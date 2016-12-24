@@ -23,13 +23,13 @@
                 foreach ($data as $article) {
                     ?>
                     <tr>
-                        <td><?php echo $article->getTitle(); ?></td>
-                        <td><?php echo substr(preg_replace('/<[^>]*>/', ' ', $article->getAbstract()), 0, 50) . "..."; ?></td>
-                        <td><?php echo $article->getCategory(); ?></td>
+                        <td><?php echo $article["title"]; ?></td>
+                        <td><?php echo substr(preg_replace('/<[^>]*>/', ' ', $article["abstract"]), 0, 50) . "..."; ?></td>
+                        <td><?php echo $article["description"]; ?></td>
                         <td>
-                            <a href="<?php echo WEBROOT . "article/updatearticle/" . $article->getId(); ?>"
+                            <a href="<?php echo WEBROOT . "article/updatearticle/" . $article["id"]; ?>"
                                class="span6 btn btn-success btn-xs">modifier</a>
-                            <a href="<?php echo WEBROOT . "article/deletearticle/" . $article->getId(); ?>"
+                            <a href="<?php echo WEBROOT . "article/deletearticle/" . $article["id"]; ?>"
                                class="span6 btn btn-danger btn-xs">supprimer</a>
                         </td>
                     </tr>
