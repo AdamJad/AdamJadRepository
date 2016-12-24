@@ -51,7 +51,7 @@ class UserController extends Controller
             $this->getModel()->update($user);
             $this->rededition("user/displayUsers");
         } else {
-            Controller::error();
+            $this->rededition("user/updateuser/" . $_POST["id"]);
         }
     }
 
@@ -69,8 +69,7 @@ class UserController extends Controller
             $this->getModel()->save($user);
             $this->rededition("user/displayUsers");
         } else {
-            echo "error";
-            Controller::error();
+            $this->rededition("user/newuser");
         }
     }
 
