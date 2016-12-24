@@ -33,9 +33,11 @@ class Acces
     {
         return array(
             "user/disconnection",
+            "#^user\/updateuser\/[0-9]*$#",
             "#^article\/displayArticlesBy\/[0-9]*$#",
             "article/displayallarticles",
             "#^article\/displayarticle\/[0-9]*$#",
+
         );
     }
 
@@ -48,7 +50,6 @@ class Acces
                 "user/adduseraction",
                 "user/updateuseraction",
                 "user/displayusers",
-                "#^user\/updateuser\/[0-9]*$#",
                 "#^user\/deleteuser\/[0-9]*$#",
 
             ), Acces::initApp()

@@ -22,7 +22,7 @@ class UserController extends Controller
 
     public function newUser()
     {
-        $this->render("update_create_user", "Nouveau Utilisateur");
+        $this->render("create_user", "Nouveau Utilisateur");
     }
 
     public function deleteUser($id)
@@ -34,7 +34,9 @@ class UserController extends Controller
     public function updateUser($id)
     {
         $data = $this->getModel("user")->findById($id);
-        $this->render("update_create_user", "Modifier utilisateur", $data);
+        if (empty($data))
+            Controller::error();
+        $this->render("update_user", "Modifier utilisateur", $data);
     }
 
     public function updateUserAction()

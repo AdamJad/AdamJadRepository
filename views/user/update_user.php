@@ -5,17 +5,10 @@
  * Date: 08/12/2016
  * Time: 06:18
  */
-$url = WEBROOT . "user/";
-if (!empty($data)) {
-    $user = $data;
-    $url .= "updateuseraction";
-} else {
-    $user = new User();
-    $url .= "adduseraction";
-}
+$user = $data;
 ?>
 <div class="col-lg-12">
-    <form method="post" action="<?php echo $url ?>">
+    <form method="post" action="<?php echo WEBROOT . "user/updateuseraction" ?>">
         <input type="hidden" name="id" value="<?php echo $user->getId(); ?>">
         <div class="form-group">
             <label for="inputFirstName">Prénom</label>
