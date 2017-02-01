@@ -63,7 +63,7 @@
                         ?>
                         <div class="col-xs-6 col-lg-4">
                             <h2><?php echo $data["articles"][$i]->getTitle() ?></h2>
-                            <p><?php echo substr(preg_replace('/<[^>]*>/', ' ', $article->getAbstract()), 0, 100) . "..."; ?></p>
+                            <p><?php echo substr(preg_replace('/<[^>]*>/', ' ', $data["articles"][$i]->getAbstract()), 0, 100) . "..."; ?></p>
                             <p><a class="btn btn-default"
                                   href="<?php echo WEBROOT . "article/displayarticle/" . $data["articles"][$i]->getId(); ?>"
                                   role="button">Lire la suit &raquo;</a></p>
